@@ -11,13 +11,14 @@ public class Medicamento {
 	//Propiedades
 	private String nombreDelMedicamento;
 	private TipoMedicamento tipoMedicamento;
+	private String codigoDeLaEnfermedad;
 	private String farmaceutica;
 	private Double puntuacion;
 	private Integer indiceSomatico;
 	private LocalDate fechaDeCatalogo;
 
 	//Constructores
-	public Medicamento(String nombreDelMedicamento, TipoMedicamento tipoMedicamento, String farmaceutica,
+	public Medicamento(String nombreDelMedicamento, TipoMedicamento tipoMedicamento,String codigoDeLaEnfermedad, String farmaceutica,
 			Double puntuacion, Integer indiceSomatico, LocalDate fechaDeCatalogo) {
 		//Restricciones
 		Checkers.check("La puntuacion debe de ser mayor que 0", puntuacion>0);
@@ -28,6 +29,7 @@ public class Medicamento {
 		
 		this.nombreDelMedicamento = nombreDelMedicamento;
 		this.tipoMedicamento = tipoMedicamento;
+		this.codigoDeLaEnfermedad = codigoDeLaEnfermedad;
 		this.farmaceutica = farmaceutica;
 		this.puntuacion = puntuacion;
 		this.indiceSomatico = indiceSomatico;
@@ -103,9 +105,6 @@ public class Medicamento {
 		return res;
 
 	}
-	
-	public static void main(String[] args) {
-		Medicamento m = new Medicamento("efavirenz",TipoMedicamento.ANATOMICO,"Actavis",90.,1848,LocalDate.of(2019, 12, 04));
-		System.out.println(m);
-	}
+
+
 }

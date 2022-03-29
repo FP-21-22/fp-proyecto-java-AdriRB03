@@ -17,13 +17,19 @@ public record PacienteEstudio(String id, String genero, Double edad, Boolean hip
 	}
 	//"6306;Male;80;false;false;URBANA;83.84"
 	public static PacienteEstudio parse(String text) {
-//		String[] partes = text.split(",");
-//		String nc = partes[0];
-//		String [] partes_nc = nc.split(" "); 
-//		String t = text.substring(1, text.length()-1);
-//		String[] parte = t.split(",");
-//		return PacienteEstudio.of(partes_nc[0], partes_nc[1], Double.parseDouble(parte[0]), Boolean.parseBoolean(parte[3]), Boolean.parseBoolean(parte[4]), TipoResidencia.RURAL, Double.parseDouble(parte[1]));
-	return null;//He intentado hacer el parse pero me sale eror por eso esta comentado.
+		String[] aux = text.split(";");
+		//
+		String id = aux[0].trim();
+		String genero = aux[1].trim();
+		Double edad = Double.parseDouble(aux[2].trim());
+		Boolean hipertension = Boolean.parseBoolean(aux[3].trim());
+		Boolean enfermedadDelCorazon = Boolean.parseBoolean(aux[4].trim());
+		TipoResidencia tipoDeResidencia = TipoResidencia.valueOf(aux[5].trim().toUpperCase());
+		Double nivelMedioDeGlucosa = Double.parseDouble(aux[6].trim());
+		
+		
+		PacienteEstudio res= PacienteEstudio.of(id, genero, edad, hipertension, enfermedadDelCorazon, tipoDeResidencia, nivelMedioDeGlucosa);
+		return res;
 	}
 	
 	public Boolean factorDeRiesgo() {
@@ -34,7 +40,7 @@ public record PacienteEstudio(String id, String genero, Double edad, Boolean hip
 		}
 	}
 	
-	public String toString() {//PREGUNTAR		
+	public String toString() {		
 
 		return String.format("%s es el id de la persona con %f años.",id,edad);
 	}
@@ -49,11 +55,7 @@ public record PacienteEstudio(String id, String genero, Double edad, Boolean hip
 	}
 	
 	public static void main(String[] args) {
-		PacienteEstudio p = PacienteEstudio.of("1532", "Male", 110., true, false, TipoResidencia.URBANA,230.);
 		PacienteEstudio p2 = PacienteEstudio.parse("6306;Male;80.;false;false;URBANA;83.84");
-		System.out.println(p);
-		System.out.println(p.factorDeRiesgo());
-		System.out.println(p.toString());
 		System.out.println(p2);
 	}
 }
