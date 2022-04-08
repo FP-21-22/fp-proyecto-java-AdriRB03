@@ -1,100 +1,184 @@
-# Proyecto del Segundo Cuatrimestre Fundamentos de Programación (Curso  \<XX\>/\<YY\>)
-Autor/a: \<nombre del autor\>   uvus:\<uvus del autor\>
+# Proyecto del Segundo Cuatrimestre Fundamentos de Programaci�n (Curso  21/22)
+Autor/a: Adri�n Robles Borrego  uvus:adrrobbor126
 
-Aquí debes añadir la descripción del dataset y un enunciado del dominio del proyecto.
+Tuve una tutoria con usted el lunes porque habia tenido un problema al subir el poyecto a github y me dijo que lo subiera despues de fecha con esta aclaracion en el Readme. 
+
+Al final era lo que deciamos, que el token estaba caducado desde el 17 de enero y por eso no me dejaba subirlo.
 
 
 ## Estructura de las carpetas del proyecto
 
 * **/src**: Contiene los diferentes archivos que forman parte del proyecto. Debe estar estructurado en los siguentes paquetes
-  * **fp.\<dominio\>**: Paquete que contiene los tipos del proyecto.
-  * **fp.\<dominio\>.test**: Paquete que contiene las clases de test del proyecto.
-  * **fp.common**: Paquete que contiene los tipos auxiliares del proyecto
-  * **fp.utiles**:  Paquete que contiene las clases de utilidad. 
-* **/data**: Contiene el dataset o datasets del proyecto
-    * **\<dataset1.csv\>**: Añade una descripción genérica del dataset.
-    * **\<dataset2.csv\>**: Añade una descripción del resto de datasets que puedas tener.
+  * **fp.clinico**: Paquete que contiene los tipos Persona, Paciente y PacienteEstudio.
+  * **fp.farmaceutico**: Paquete que contiene los tipos Medicamento y FactoriaMedicamentos
+  * **fp.farmaceutico.test**: Paquete que contiene el tipo TestFactoriaMedicamentos
+  * **fp.vacunas**: Paquete que contiene el tipo Vacunacion.
+  * **fp.utiles**:  Paquete que contiene la clase de Checkers. 
+* **/README**: Contiene la organizacion del proyecto y como esta dividido.    
     
-## Estructura del *dataset*
-
-Aquí debes describir la estructura del dataset explicando qué representan los datos que contiene y la descripción de cada una de las columnas. Incluye también la URL del dataset original.
-
-El dataset está compuesto por \<N\> columnas, con la siguiente descripción:
-
-* **\<columna 1>**: de tipo \<tipo\>, representa....
-* **\<columna 2>**: de tipo \<tipo\>, representa....
-....
 
 ## Tipos implementados
 
-Describe aquí los tipos que usas en tu proyecto.
-
-### Tipo Base
-Descripción breve del tipo base.
+### Tipo Persona
+El tipo persona crea una persona con nombre, apellidos, dni y fecha de nacimiento.
 
 **Propiedades**:
+SString nombre, String apellidos, String dni, LocalDate fechaNacimiento
+- Propiedad 1: de tipo String, representa el nombre de la persona. 
+- Propiedad 2: de tipo String, representa los apellidos de la persona.
+- Propiedad 3: de tipo String, representa el dni de la persona.
+- Propiedad 4: de tipo LocalDate, representa la fecha de nacimiento de la persona.
 
-- _propiedad1_, de tipo \<Tipo1\>, consultable. 
-- _propiedad2_, de tipo \<Tipo2\>, consultable y modificable. 
-- ...
-- 
-**Constructores**: 
-
-- C1: Descripción del constructor 1.
-- C2: Descripción del constructor 2.
-- ...
 
 **Restricciones**:
  
-- R1: Descripción de la restricción 1.
-- R2: Descripción de la restricción 2.
-- ...
-- 
-**Criterio de igualdad**: Describir el criterio de igualdad
+- R1: Comprueba que la fecha de nacimiento sea anterior a la fecha actual.
+- R2: Comprueba que el dni tenga longitud 9.
+- R3: Comprueba que el dni tenga numeros del 0 al 9.
+- R4: Comprueba que el ultimo digito es un caracter.
 
-**Criterio de ordenación**: Describir el criterio de ordenación (si lo hay).
+**Criterio de igualdad**: No tiene.
 
-**Otras operaciones**:
- 
--	_método 1_: Descripción del método 1.
-- ...
+**Criterio de ordenacion**: Lo ordena por dni.
 
-#### Tipos auxiliares
-Descripción de los tipos auxiliares que sean necesarios añadir al proyecto.
+**Tipos auxiliares**
+- Metodo 1: llamado edad(), obtiene la edad de la persona.
 
-### Factoría
-Descripción breve de la factoría.
+**Factoria**
+- Parse: Obtiene una cadena con formato y devuelve una persona
+- Of: Obtiene nombre, apellidos, dni y fecha de nacimiento y devuelve una persona.
 
-- _método 1_: Descripción del método 1.
--	_método 2_: Descripción del método 2.
-
-### Tipo Contenedor
-
-Descripción breve del tipo contenedor.
+### Tipo Paciente
+ El tipo paciente crea un paciente con nombre, apellidos, fecha de nacimiento, codigo de ingreso y fecha y hora
 
 **Propiedades**:
+Persona persona,String nombre, String apellidos, String dni, LocalDate fechaNacimiento,String codigoDeIngreso,LocalDateTime fechaYHora.
+- Propiedad 1: de tipo String, representa el nombre de la persona. 
+- Propiedad 2: de tipo String, representa los apellidos de la persona.
+- Propiedad 3: de tipo String, representa el dni de la persona.
+- Propiedad 4: de tipo LocalDate, representa la fecha de nacimmiento de la persona.
+- Propiedad 5: de tipo String, representa el codigo de ingreso
+- Propiedad 6: de tipo LocalDateTime, representa la fecha y la hora
 
-- _propiedad1_, de tipo \<Tipo1\>, consultable. 
-- _propiedad2_, de tipo \<Tipo2\>, consultable y modificable. 
-- ...
-- 
-**Constructores**: 
 
-- C1: Descripción del constructor 1.
-- C2: Descripción del constructor 2.
-- ...
+**Restricciones**:
+ - R1: Comprueba que la fecha de nacimiento sea anterior a la fecha actual.
+- R2: Comprueba que el dni tenga longitud 9.
+- R3: Comprueba que el dni tenga numeros del 0 al 9.
+- R4: Comprueba que el ultimo digito es un caracter.
+
+**Criterio de igualdad**: No tiene.
+
+**Criterio de ordenacion**: No tiene.
+
+**Tipos auxiliares**
+- Metodo 1: llamado fechaDeIngreso(), obtiene la fecha en el que el paciente ingres�.
+- Metodo 1: llamado horaDeIngreso(), obtiene la hora en el que el paciente ingres�..
+
+**Factoria**
+- Of: Obtiene persona, codigoDeIngreso y fechaYHora y devuelve una persona.
+- Of: Obtiene nombre, apellidos, dni, fecha de nacimiento, codigoDeIngreso y fechaYHora y devuelve una persona.
+
+### Tipo PacienteEstudio
+El tipo PacienteEstudio crea un paciente con id y edad
+
+**Propiedades**:
+String id, String genero, Double edad, Boolean hipertension, Boolean enfermedadDelCorazon, TipoResidencia tipoDeResidencia, Double nivelMedioDeGlucosa
+- Propiedad 1: de tipo String, representa el id de la persona. 
+- Propiedad 2: de tipo String, representa el genero de la persona.
+- Propiedad 3: de tipo Double, representa el dni de la persona.
+- Propiedad 4: de tipo Boolean, representa si el paciente tiene o no hipertension.
+- Propiedad 5: de tipo Boolean, representa si el paciente tiene o no una enfermedad del corazon.
+- Propiedad 6: de tipo TipoResidencia, puede tomar los valores de rural o urbana
+- Propiedad 7: de tipo Double, representa el nivel medio de glucosa.
+
+
 
 **Restricciones**:
  
-- R1: Descripción de la restricción 1.
-- R2: Descripción de la restricción 2.
-- ...
-- 
-**Criterio de igualdad**: Describir el criterio de igualdad
+- R1: Comprueba que la edad tiene que ser mayor o igual que cero y menor o igual que 130.
+- R2: Comprueba que el nivel medio de glucosa tiene que ser mayor o igual que cero.
 
-**Criterio de ordenación**: Describir el criterio de ordenación (si lo hay).
 
-**Otras operaciones**:
+**Criterio de igualdad**: No tiene.
+
+**Criterio de ordenacion**: Lo ordena por la edad y el id.
+
+**Tipos auxiliares**
+- Metodo 1: llamado factorDeRiesgo(), si el paciente tiene hipertensi�n y m�s de 40 a�os se considera que tiene factor de riesgo
+
+**Factoria**
+- Parse: Obtiene una cadena con formato y devuelve un paciente
+- Of: Obtiene todas las propiedades basicas y devuelve un paciente.
+
+### Tipo Vacunacion
+El tipo Vacunacion crea una vacunacion con fecha, comunidad, el numero de vacunas de cada tipo que tiene puesta la persona y el numero de personas que participan.
+
+**Propiedades**:
+LocalDate fecha, String comunidad, Integer pfizer, Integer moderna, Integer astrazeneca, Integer janssen, Integer numeroDePersonas
+- Propiedad 1: de tipo LocalDate, representa la fecha de vacunacion. 
+- Propiedad 2: de tipo String, representa la comunidad en la que vive la persona.
+- Propiedad 3: de tipo Integer, representa el numero de dosis de pfizer.
+- Propiedad 4: de tipo Integer, representa el numero de dosis de moderna
+- Propiedad 5: de tipo Integer, representa el numero de dosis de astrazeneca
+- Propiedad 6: de tipo Integer, representa el numero de dosis de janssen
+- Propiedad 7: de tipo Integer, representa numero total de personas que participan en la vacunacion.
+
+
+**Restricciones**:
  
--	_método 1_: Descripción del método 1.
-- ...
+- R1: Comprueba que la fecha sea posterior al 01/02/2021.
+
+
+**Criterio de igualdad**: No tiene.
+
+**Criterio de ordenacion**: por comunidad y en caso de igualdad por fecha
+
+**Tipos auxiliares**
+- Metodo 1: llamado numeroTotal(), representa el numero total de vacunas que tienen puestas cada persona.
+
+**Factoria**
+- Parse: Obtiene una cadena con formato y devuelve una persona
+- Of: Obtiene todas las propiedades basicas y devuelve una persona.
+
+### Tipo Medicamento
+El tipo persona crea una persona con nmbre, apellidos y fecha de nacimiento.
+
+**Propiedades**:
+String nombreDelMedicamento, TipoMedicamento tipoMedicamento,String codigoDeLaEnfermedad, String farmaceutica,Double puntuacion, Integer indiceSomatico, LocalDate fechaDeCatalogo
+String nombre, String apellidos, String dni, LocalDate fechaNacimiento
+- Propiedad 1: de tipo String, representa el nombre del medicamento. 
+- Propiedad 2: de tipo TipoMedicamento, puede tomar los valores de anat�mico, qu�mico y terap�utico
+- Propiedad 3: de tipo String, representa el codigo de la enfermedad
+- Propiedad 4: de tipo String, representa el nombre de la farmaceutica
+- Propiedad 5: de tipo Double, representa la puntuacion obtenida del medicamento.
+- Propiedad 6: de tipo Integer, representa el numero de indice somatico
+- Propiedad 7: de tipo LocalDate, representa la fecha en que se catalog� el medicamento.
+
+
+**Constructores**: 
+
+- C1: Obtiene todas las propiedades basicas.
+
+
+**Restricciones**:
+ 
+- R1: Comprueba que la puntuacion debe de ser mayor que 0.
+- R2: Comprueba que el �ndice som�tico tiene que ser mayor o igual que 1000
+- R3: Comprueba que la fecha de cat�logo tiene que ser posterior al 01/01/2015.
+
+
+**Criterio de igualdad**: por nombre del medicamento y farmac�utica.
+
+**Criterio de ordenacion**: por nombre del medicamento y en caso de igualdad por la farmac�utica.
+
+**Tipos auxiliares**
+- Metodo 1: llamado edad(), obtiene la edad de la persona.
+
+**Comentarios**
+- Creo ademas una clase de nombre FactoriaMedicamentos que incluye un
+m�todo estatico de nombre parseaMedicamento, que recibe una cadena con un
+formato espec�fico y devuelve un objeto de tipo Medicamento.
+- Finalmente implemento una clase de nombre TestFactoriaMedicamentos que comprueba el correcto funcionamiento del m�todo anterior.
+
+
