@@ -40,6 +40,8 @@ public record PacienteEstudio(String id, String genero, Double edad, Boolean hip
 		}
 	}
 	
+	
+	
 	public String toString() {		
 
 		return String.format("%s es el id de la persona con %f años.",id,edad);

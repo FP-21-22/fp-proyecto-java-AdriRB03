@@ -9,7 +9,7 @@ public record Vacunacion(LocalDate fecha, String comunidad, Integer pfizer, Inte
 
 	public static Vacunacion of(LocalDate fecha, String comunidad, Integer pfizer, Integer moderna, Integer astrazeneca, Integer janssen, Integer numeroDePersonas) {
 		//RESTRICCIONES
-		Checkers.check("La fecha de debe ser posterior al 01/02/2021.", fecha.isBefore(LocalDate.of(2021, 02, 01)));
+		Checkers.check("La fecha de debe ser posterior al 01/01/2021.", fecha.isAfter(LocalDate.of(2021, 01, 01)));
 		
 		//
 		return new Vacunacion( fecha, comunidad, pfizer, moderna, astrazeneca, janssen, numeroDePersonas); 

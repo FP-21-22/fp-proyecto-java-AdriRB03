@@ -141,6 +141,7 @@ LocalDate fecha, String comunidad, Integer pfizer, Integer moderna, Integer astr
 - Parse: Obtiene una cadena con formato y devuelve una persona
 - Of: Obtiene todas las propiedades basicas y devuelve una persona.
 
+
 ### Tipo Medicamento
 El tipo persona crea una persona con nmbre, apellidos y fecha de nacimiento.
 
@@ -180,5 +181,93 @@ String nombre, String apellidos, String dni, LocalDate fechaNacimiento
 método estatico de nombre parseaMedicamento, que recibe una cadena con un
 formato específico y devuelve un objeto de tipo Medicamento.
 - Finalmente implemento una clase de nombre TestFactoriaMedicamentos que comprueba el correcto funcionamiento del método anterior.
+
+
+### Factoría - FactoriaVacunación
+Clase de factoría para construir objetos de tipo Vacunacion.
+
+Metodos:
+
+- leeFichero(String nombreFichero): Dada una cadena con el nombre del fichero, devuelve una lista de objetos Vacunacion.
+
+- parse(String text): parsea cada linea del fichero.
+
+Además, se ha creado una clase llamada TestFactoriaVacunacion, en la que se prueba el funcionamiento correcto de la clase FactoriaVacunacion.
+
+### Factoría - FactoriaMedicamentos2
+Clase de factoría para construir objetos de tipo Medicamento.
+
+Metodos:
+
+- leeFichero(String nombreFichero): Dada una cadena con el nombre del fichero, devuelve una lista de objetos Medicamento.
+
+- parseaMedicamento(String text): parsea cada linea del fichero.
+
+Además, se ha creado una clase llamada TestFactoriaMedicamentos2, en la que se prueba el funcionamiento correcto de la clase FactoriaMedicamentos2.
+
+
+## Interfaz implementada
+Llamada EstudioClinico, incorporada en el paquete fp.clinico. 
+
+Esta interfaz tiene dos implementaciones, una imperativa, llamada EstudioClinicoBucles y otra funcional, llamada EstudioCLinicoStream.
+ 
+Contiene Los siguientes metodos:
+
+
+
+
+ 
+- Propiedades de lista
+
+	Integer numeroPacientes(): obtiene el numero de pacientes total.
+	
+	void incluyePaciente(PacienteEstudio paciente): se utiliza para incluir un paciente a la lista.
+	
+	void incluyePacientes(Collection<PacienteEstudio> pacientes): incluye varios pacientes.
+	
+	void eliminaPaciente(PacienteEstudio paciente):se utiliza para eliminar un paciente.
+	
+	Boolean estaPaciente(PacienteEstudio paciente): devuelve true si el paciente esta en el fichero, y false si no esta.
+	
+	void borraEstudio(): borra el estudio completo
+	 
+- Método de factoría
+
+	EstudioClinico of(String nombreFichero): hace una llamada la metodo leeFichero, y construye un objeto de tipo EstudioClinico
+	
+	List<PacienteEstudio> leeFichero(String nombreFichero): metodo que sirve para la lectura del fichero de texto.
+	
+- Tratamientos secuenciales: implementaciónn funcional vs. imperativa
+
+	 Boolean todosPacienteSonDelTipo(TipoResidencia tipo): devuelve true si todos los pacientes son del tipo TipoResidencia, y false si no lo son.
+	 
+	 Boolean existeAlgunPacienteDelTipo(TipoResidencia tipo): devuelve true si existe algun paciente de tipo TipoResidencia, y false si no existe.
+	 
+- Contador, suma, media
+
+	 Integer numeroPacientesFactorRiesgo(): devuelve un entero que smboliza el numero de pacientes con factor de riesgo.i
+
+	 Double edadMediaPacientesConFactorRiesgo(): devuelve un Double que simboliza la edad media de los pacientes que presentan factor de riesgo.;
+	 
+- Filtradoo
+
+	 List<PacienteEstudio> filtraPacientesPorEdad(Double edad): devuelve una lista que filtra los pacientes por edad.
+	 
+	 Map<String,List<PacienteEstudio>> agruparPacientesEdadMayorQuePorGenero(Double edad): devuelve un mapa que agrupa los pacientes de edad mayor por genero.
+	 
+	 Map<String,Long> numeroPacientesPorGenero(): devuelve un mapa que obtiene el numero de paciente por genero.
+	 
+	 Map<String,Double> edadMediaPacientesPorPorGenero(): devuelve un mapa que obtiene la edad media de los pacinetes dependiendo del genero.
+
+
+**EstudioClinicoBucles**:
+
+Esta clase implementa todos los metodos de la interfaz de forma imperativa.
+
+**EstudioClinicoStream**:
+
+Esta clase implementa todos los metodos de la interfaz de forma funcional.
+
+
 
 
