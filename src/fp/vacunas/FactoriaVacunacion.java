@@ -23,7 +23,7 @@ public class FactoriaVacunacion {
 			if(cont>0) {
 				Vacunacion m = Vacunacion.parse(e);
 				res.add(m);
-			}
+ 			}
 			cont++;
 		}		
 		return res;		

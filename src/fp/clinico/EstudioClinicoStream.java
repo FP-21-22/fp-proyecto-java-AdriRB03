@@ -10,7 +10,7 @@ public class EstudioClinicoStream implements EstudioClinico {
 	public Integer numeroPacientes() {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	} 
 
 	@Override
 	public void incluyePaciente(PacienteEstudio paciente) {

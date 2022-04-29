@@ -32,7 +32,7 @@ public class EstudioClinicoBucles implements EstudioClinico {
 		this.paciente1 = new ArrayList<PacienteEstudio>(paciente1);
 	}
 	
-	
+	 
 	
 	@Override
 	public Integer numeroPacientes() {

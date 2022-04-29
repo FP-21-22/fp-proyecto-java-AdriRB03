@@ -14,7 +14,7 @@ Al final era lo que deciamos, que el token estaba caducado desde el 17 de enero 
   * **fp.farmaceutico.test**: Paquete que contiene el tipo TestFactoriaMedicamentos
   * **fp.vacunas**: Paquete que contiene el tipo Vacunacion.
   * **fp.utiles**:  Paquete que contiene la clase de Checkers. 
-* **/README**: Contiene la organizacion del proyecto y como esta dividido.    
+* **/README**: Contiene la organizacion del proyecto y como esta dividido.     
     
 
 ## Tipos implementados

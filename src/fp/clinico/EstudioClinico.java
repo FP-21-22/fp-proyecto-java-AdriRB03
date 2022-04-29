@@ -1,8 +1,9 @@
 package fp.clinico;
 
-import java.util.Collection;
-import java.util.List;
+import java.util.Collection; 
+import java.util.List; 
 import java.util.Map;
+
 
 public interface EstudioClinico {
 	// Propiedades de lista
@@ -12,7 +13,7 @@ public interface EstudioClinico {
 	void eliminaPaciente(PacienteEstudio paciente);
 	 Boolean estaPaciente(PacienteEstudio paciente);
 	void borraEstudio();
-	 //
+	 
 	 // Método de factoría
 	EstudioClinico of(String nombreFichero);
 	 List<PacienteEstudio> leeFichero(String nombreFichero);
